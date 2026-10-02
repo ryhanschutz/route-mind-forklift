@@ -1,0 +1,13 @@
+quero uma função para que eu possa mover pontos e junções de lugar.
+
+aumente a largura dos racks, pois eles ficaram muito curtos, conforme o print.
+
+coloque nome nas docas.
+
+na primeira simulação, pode se escolher o local de partida, porém, depois, a empilhadeira fica em repouso, e ela pertence fixamente ao ponto mais próximo do seu repouso, assim, permanece-se uma percepção de realidade física do equipamento.
+
+quando a empilhadeira chega no seu destino, ela "entrega" o pallet, logo ela fica vazia.
+
+para isso, crie um sistema de armazenamento nos caminhões, eles recebem os pallets, e ao completar, vão embora, e logo depois retornam, pode-se fazer uma animação para simular isso.
+
+quando eu simulo uma vez, se torna impossível redirecionar as empilhadeiras, isso se torna inviável e meio irreal, vamos arrumar isso.

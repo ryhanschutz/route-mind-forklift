@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024">
+  <title>Planta industrial simplificada — RouteMind Fork-lift</title>
+  <desc>Planta vetorial limpa de um armazém, sem caminhões, empilhadeiras, setas, legendas ou elementos decorativos.</desc>
+
+  <defs>
+    <pattern id="rack" width="18" height="14" patternUnits="userSpaceOnUse">
+      <rect x="1" y="1" width="16" height="12" fill="#e8e8e8" stroke="#8b8b8b" stroke-width="1"/>
+      <line x1="4" y1="1" x2="4" y2="13" stroke="#b0b0b0" stroke-width="1"/>
+      <line x1="9" y1="1" x2="9" y2="13" stroke="#b0b0b0" stroke-width="1"/>
+      <line x1="14" y1="1" x2="14" y2="13" stroke="#b0b0b0" stroke-width="1"/>
+    </pattern>
+    <style>
+      .wall { fill:#f7f7f7; stroke:#252525; stroke-width:7; }
+      .inner { fill:#fafafa; stroke:#555; stroke-width:2; }
+      .zone { fill:#f3f3f3; stroke:#777; stroke-width:2; }
+      .rack { fill:url(#rack); stroke:#444; stroke-width:2; }
+      .aisle { fill:#ffffff; stroke:#c7c7c7; stroke-width:2; }
+      .ped { fill:#d8f0e5; stroke:#83bda2; stroke-width:2; }
+      .restricted { fill:#fff1f1; stroke:#d44; stroke-width:2; }
+      .dock { fill:#dedede; stroke:#555; stroke-width:2; }
+      .thin { stroke:#aaa; stroke-width:2; fill:none; }
+    </style>
+  </defs>
+
+  <!-- BUILDING SHELL -->
+  <rect x="34" y="30" width="1468" height="818" rx="5" class="wall"/>
+
+  <!-- Main pedestrian perimeter / circulation bands -->
+  <rect x="50" y="47" width="1436" height="45" class="ped"/>
+  <rect x="50" y="790" width="1436" height="42" class="ped"/>
+  <rect x="50" y="92" width="42" height="698" class="ped"/>
+  <rect x="1444" y="92" width="42" height="698" class="ped"/>
+
+  <!-- TOP FUNCTIONAL AREAS -->
+  <rect x="66" y="62" width="235" height="164" class="zone"/>
+  <rect x="316" y="62" width="190" height="164" class="restricted"/>
+  <rect x="521" y="62" width="570" height="164" class="zone"/>
+  <rect x="1204" y="62" width="257" height="595" class="zone"/>
+
+  <!-- Charging area -->
+  <rect x="84" y="82" width="198" height="120" fill="#f8f8f8" stroke="#999" stroke-width="2"/>
+  <line x1="84" y1="122" x2="282" y2="122" class="thin"/>
+  <line x1="84" y1="162" x2="282" y2="162" class="thin"/>
+
+  <!-- Maintenance -->
+  <rect x="332" y="82" width="158" height="120" fill="#fff" stroke="#aaa" stroke-width="2"/>
+  <rect x="350" y="101" width="50" height="42" class="dock"/>
+  <rect x="421" y="101" width="50" height="42" class="dock"/>
+
+  <!-- Picking / staging rows -->
+  <g>
+    <rect x="548" y="86" width="120" height="30" class="rack"/>
+    <rect x="686" y="86" width="120" height="30" class="rack"/>
+    <rect x="824" y="86" width="120" height="30" class="rack"/>
+    <rect x="962" y="86" width="92" height="30" class="rack"/>
+    <rect x="548" y="128" width="120" height="30" class="rack"/>
+    <rect x="686" y="128" width="120" height="30" class="rack"/>
+    <rect x="824" y="128" width="120" height="30" class="rack"/>
+    <rect x="962" y="128" width="92" height="30" class="rack"/>
+  </g>
+
+  <!-- SHIPPING -->
+  <rect x="1220" y="82" width="225" height="555" fill="#fff" stroke="#aaa" stroke-width="2"/>
+  <g>
+    <rect x="1238" y="120" width="62" height="58" class="rack"/>
+    <rect x="1238" y="205" width="62" height="58" class="rack"/>
+    <rect x="1238" y="290" width="62" height="58" class="rack"/>
+    <rect x="1238" y="375" width="62" height="58" class="rack"/>
+    <rect x="1238" y="460" width="62" height="58" class="rack"/>
+    <rect x="1238" y="545" width="62" height="58" class="rack"/>
+  </g>
+  <!-- Loading docks -->
+  <g>
+    <rect x="1388" y="112" width="57" height="88" class="dock"/>
+    <rect x="1388" y="220" width="57" height="88" class="dock"/>
+    <rect x="1388" y="328" width="57" height="88" class="dock"/>
+    <rect x="1388" y="436" width="57" height="88" class="dock"/>
+  </g>
+
+  <!-- CENTRAL FORKLIFT HIGHWAY / CROSS AISLE -->
+  <rect x="92" y="527" width="1112" height="63" class="aisle"/>
+
+  <!-- CENTRAL STORAGE BLOCKS -->
+  <!-- Upper storage area -->
+  <g>
+    <rect x="116" y="238" width="44" height="280" class="rack"/>
+    <rect x="197" y="238" width="44" height="280" class="rack"/>
+    <rect x="322" y="238" width="44" height="280" class="rack"/>
+    <rect x="403" y="238" width="44" height="280" class="rack"/>
+    <rect x="484" y="238" width="44" height="280" class="rack"/>
+    <rect x="565" y="238" width="44" height="280" class="rack"/>
+    <rect x="646" y="238" width="44" height="280" class="rack"/>
+    <rect x="727" y="238" width="44" height="280" class="rack"/>
+    <rect x="808" y="238" width="44" height="280" class="rack"/>
+    <rect x="889" y="238" width="44" height="280" class="rack"/>
+    <rect x="970" y="238" width="44" height="280" class="rack"/>
+    <rect x="1051" y="238" width="44" height="280" class="rack"/>
+    <rect x="1132" y="238" width="44" height="280" class="rack"/>
+  </g>
+
+  <!-- Upper rack-end aisle / perimeter lanes -->
+  <rect x="94" y="232" width="1086" height="296" fill="none" stroke="#bdbdbd" stroke-width="2"/>
+  <line x1="276" y1="232" x2="276" y2="527" class="thin"/>
+  <line x1="1188" y1="232" x2="1188" y2="527" class="thin"/>
+
+  <!-- Lower storage area -->
+  <g>
+    <rect x="520" y="606" width="44" height="176" class="rack"/>
+    <rect x="601" y="606" width="44" height="176" class="rack"/>
+    <rect x="682" y="606" width="44" height="176" class="rack"/>
+    <rect x="763" y="606" width="44" height="176" class="rack"/>
+    <rect x="844" y="606" width="44" height="176" class="rack"/>
+    <rect x="925" y="606" width="44" height="176" class="rack"/>
+    <rect x="1006" y="606" width="44" height="176" class="rack"/>
+    <rect x="1087" y="606" width="44" height="176" class="rack"/>
+  </g>
+  <rect x="500" y="596" width="650" height="194" fill="none" stroke="#bdbdbd" stroke-width="2"/>
+
+  <!-- RECEIVING / STAGING -->
+  <rect x="70" y="608" width="410" height="180" class="zone"/>
+  <rect x="91" y="626" width="360" height="67" fill="#fff" stroke="#aaa" stroke-width="2"/>
+  <rect x="91" y="704" width="170" height="65" class="dock"/>
+  <rect x="280" y="704" width="170" height="65" class="dock"/>
+
+  <!-- Receiving internal load blocks -->
+  <g>
+    <rect x="103" y="638" width="72" height="38" class="rack"/>
+    <rect x="187" y="638" width="72" height="38" class="rack"/>
+    <rect x="271" y="638" width="72" height="38" class="rack"/>
+    <rect x="355" y="638" width="72" height="38" class="rack"/>
+  </g>
+
+  <!-- Right lower open/shipping transition -->
+  <rect x="1204" y="657" width="257" height="131" class="zone"/>
+  <rect x="1220" y="678" width="92" height="50" class="rack"/>
+  <rect x="1340" y="678" width="92" height="50" class="rack"/>
+
+  <!-- Main circulation connectors -->
+  <path d="M92 244 H1120" class="thin"/>
+  <path d="M92 515 H1180" class="thin"/>
+  <path d="M1180 232 V790" class="thin"/>
+  <path d="M492 590 V790" class="thin"/>
+
+  <!-- Simplified access openings -->
+  <g fill="#fff" stroke="#333" stroke-width="2">
+    <rect x="32" y="238" width="10" height="75"/>
+    <rect x="32" y="515" width="10" height="72"/>
+    <rect x="1495" y="238" width="10" height="75"/>
+    <rect x="1495" y="515" width="10" height="72"/>
+    <rect x="650" y="25" width="75" height="10"/>
+    <rect x="650" y="843" width="75" height="10"/>
+  </g>
+</svg>
