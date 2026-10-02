@@ -1,10 +1,19 @@
-[x] 1. Definir arquitetura do Tema 7 e gerar CLAUDE.md
-[x] 2. Configurar paleta de cores institucional (Branco #FFFFFF / Azul-Marinho #051E4B / Dourado #F49E03) e tipografia moderna no Tailwind e CSS
-[x] 3. Copiar e preparar ativos visuais (/images): logotipo RouteMind e sprite 2D top-down da empilhadeira
-[x] 4. Refatorar o motor de Leaflet para L.CRS.Simple (coordenadas planas métricas para planta fabril fechada, removendo OpenStreetMap)
-[x] 5. Criar preset de layout industrial completo (Docas de Expedição, Armazéns Porta-Paletes, Linhas de Montagem, Estação de Recarga)
-[x] 6. Implementar renderização de empilhadeiras com sprite 2D top-down e cálculo de rotação dinâmica (ângulo de percurso em graus)
-[x] 7. Implementar identificação de gargalos e zonas de alto tráfego (heatmap e contagem de saturação por via)
-[x] 8. Organizar a base de código em blocos modulares (/modules/plant-layout, /modules/fleet, /modules/routing, /modules/analytics, /modules/radio-console)
-[x] 9. Limpar arquivos mortos e componentes obsoletos de mapa global
-[x] 10. Testar execução, build e verificar ausência de erros de compilação
+este sistema originalmente, foi feito para mapear rotas em qualquer lugar do mundo usando openstreetmap e outras ferramentas
+
+porém, o foco agora é eliminar oque não é necessário para o tema 7, que é mapear rotas em plantas especificas de empilhadeiras.
+
+a logo, está presente em /images, e, anteriormente, os veiculos eram simbolizados por um circulo, agora, eu quero que seja por uma imagem, presente também em /images, de uma empilhadeira 2d.
+
+a paleta de cores do sistema, deve ser branca, variando com tons da logo, no caso:
+Azul-marinho: #051E4B — RGB (5, 30, 75)
+Amarelo/dourado: aproximadamente #F49E03 — RGB (244, 158, 3)
+
+o sistema deve usar fontes modernas, evitar parecer um frontend comum de vibecoding, por isso, fuja do habitual.
+
+você está permitido para eliminar o oque não for usar.
+
+você deve organizar o sistema, a pasta, em blocos.
+
+você deve criar um plano em markdown para rodar o sistema.
+
+documente tudo, crie um claude.md para evitar se perder.
