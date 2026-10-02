@@ -79,7 +79,7 @@ export class PlantGraph {
       name,
       width,
       height,
-      svgUrl: '/images/warehouse_plant.svg',
+      svgUrl: `${import.meta.env.BASE_URL}images/warehouse_plant.svg`,
       nodes: Array.from(this.nodes.values()),
       edges: Array.from(this.edges.values()),
     };

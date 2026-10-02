@@ -6,6 +6,7 @@ import TrafficAnalyticsDashboard from '../modules/analytics/components/TrafficAn
 import { usePlantSimulation } from '../modules/fleet/hooks/usePlantSimulation';
 import { NodeType } from '../modules/plant-layout/types';
 import { BarChart3, X } from 'lucide-react';
+import { assetUrl } from '@/lib/assets';
 
 export default function IndustrialDashboard() {
   const sim = usePlantSimulation();
@@ -75,16 +76,16 @@ export default function IndustrialDashboard() {
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-[#F1F5F9] font-sans select-none flex flex-col">
       {/* Clean White Top Bar (Emphasis on RouteMind Logo) */}
-      <header className="z-20 bg-white px-5 py-2.5 border-b border-slate-200 flex items-center justify-between shadow-2xs">
+      <header className="z-20 relative bg-white px-5 py-2.5 border-b border-slate-200 flex items-center justify-center shadow-2xs">
         <div className="flex items-center gap-3">
           <img
-            src="/images/routemind-logo.png"
+            src={assetUrl('images/routemind-logo.png')}
             alt="RouteMind Fork-lift"
             className="h-9 sm:h-10 object-contain hover:opacity-95 transition-opacity"
           />
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="absolute right-5 flex items-center gap-2">
           {/* Botão para abrir indicadores e gráficos analíticos */}
           <button
             onClick={() => setShowAnalyticsModal(true)}

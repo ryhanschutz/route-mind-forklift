@@ -210,7 +210,7 @@ export function createDefaultWarehousePlant(): PlantData {
     name: 'Layout Industrial RouteMind — Centro Logístico Integrado',
     width: 1600,
     height: 1000,
-    svgUrl: '/images/warehouse_plant.svg',
+    svgUrl: `${import.meta.env.BASE_URL}images/warehouse_plant.svg`,
     nodes,
     edges,
   };

@@ -280,7 +280,7 @@ export function usePlantSimulation() {
     if (focusedVehicleId === id) setFocusedVehicleId(null);
   }, [focusedVehicleId]);
 
-  const updateVehicle = useCallback((id: string, field: keyof Forklift, value: any) => {
+  const updateVehicle = useCallback((id: string, field: keyof Forklift, value: Forklift[keyof Forklift]) => {
     setVehicles((prev) =>
       prev.map((v) => (v.id === id ? { ...v, [field]: value } : v))
     );

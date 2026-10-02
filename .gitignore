@@ -11,6 +11,15 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+!.env.example
+
+# Build and test artifacts
+.vite
+coverage
+playwright-report
+test-results
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +31,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Operating system files
+Thumbs.db

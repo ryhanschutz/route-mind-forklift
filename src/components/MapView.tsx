@@ -148,7 +148,7 @@ export default function MapView({
         }).addTo(map);
         marker.bindTooltip(node.name, { permanent: false, className: 'node-tooltip', direction: 'top', offset: [0, -10] });
         marker.on('click', (e) => { L.DomEvent.stopPropagation(e); onNodeClick(node.id); });
-        marker.on('contextmenu', (e) => { L.DomEvent.stopPropagation(e as any); L.DomEvent.preventDefault(e as any); onNodeRightClick(node.id); });
+        marker.on('contextmenu', (e) => { L.DomEvent.stopPropagation(e); L.DomEvent.preventDefault(e); onNodeRightClick(node.id); });
         existing.set(node.id, marker);
       }
     }

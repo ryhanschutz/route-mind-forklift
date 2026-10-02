@@ -6,6 +6,7 @@ import { Forklift, DockTruck, ForkliftLoad } from '../../fleet/types';
 import { AppMode } from './PlantControlPanel';
 import { euclideanDistance, calculateHeadingAngle } from '../../routing/engine';
 import { EdgeTrafficStat } from '../../routing/traffic-analysis';
+import { assetUrl } from '@/lib/assets';
 
 export type EditorTool = 'add_poi' | 'add_junction' | 'connect_nodes' | 'toggle_block' | 'delete';
 
@@ -132,7 +133,7 @@ export default function PlantMapView({
     });
 
     // Camada 1: Planta Baixa SCADA Base
-    L.imageOverlay('/images/warehouse_plant.svg', bounds, {
+    L.imageOverlay(assetUrl('images/warehouse_plant.svg'), bounds, {
       opacity: 1,
       interactive: false,
     }).addTo(map);
@@ -148,20 +149,20 @@ export default function PlantMapView({
     // Corredores superiores (y = 235)
     const upperRackX = [90, 154, 232, 296, 374, 438, 516, 580, 658, 722, 800, 864, 942, 1006, 1084, 1148];
     upperRackX.forEach((x) => {
-      L.imageOverlay('/images/rack-weg.png', getBoxBounds(x - offsetX, 235, RACK_W, RACK_H), { interactive: false }).addTo(map);
+      L.imageOverlay(assetUrl('images/rack-weg.png'), getBoxBounds(x - offsetX, 235, RACK_W, RACK_H), { interactive: false }).addTo(map);
     });
 
     // Corredores inferiores (y = 605)
     const lowerRackX = [516, 580, 658, 722, 800, 864, 942, 1006, 1084, 1148];
     lowerRackX.forEach((x) => {
-      L.imageOverlay('/images/rack-weg.png', getBoxBounds(x - offsetX, 605, RACK_W, RACK_H), { interactive: false }).addTo(map);
+      L.imageOverlay(assetUrl('images/rack-weg.png'), getBoxBounds(x - offsetX, 605, RACK_W, RACK_H), { interactive: false }).addTo(map);
     });
 
     // === Camada 3: Caminhões de Recebimento Inbound (Escalonável com o mapa, Aspect Ratio ~2:1) ===
     const TRUCK_IN_W = 140;
     const TRUCK_IN_H = 70;
     [677, 772, 867].forEach((cy) => {
-      L.imageOverlay('/images/truck-topdown.png', getBoxBounds(85, cy - TRUCK_IN_H/2, TRUCK_IN_W, TRUCK_IN_H), { interactive: false }).addTo(map);
+      L.imageOverlay(assetUrl('images/truck-topdown.png'), getBoxBounds(85, cy - TRUCK_IN_H/2, TRUCK_IN_W, TRUCK_IN_H), { interactive: false }).addTo(map);
     });
 
     // === Camada 4: Paletes WEG - Picking, Staging e Buffer (Escalonável com o mapa, Aspect Ratio 3:2) ===
@@ -169,7 +170,7 @@ export default function PlantMapView({
     const PAL_H = 28;
     
     const renderPallet = (x: number, y: number, plc: boolean) => {
-      const img = plc ? '/images/pallet-plc-weg.png' : '/images/pallet-motors-weg.png';
+      const img = plc ? assetUrl('images/pallet-plc-weg.png') : assetUrl('images/pallet-motors-weg.png');
       L.imageOverlay(img, getBoxBounds(x - PAL_W/2, y - PAL_H/2, PAL_W, PAL_H), { interactive: false }).addTo(map);
     };
 
@@ -251,7 +252,7 @@ export default function PlantMapView({
                 ${truck.dockName.split(' ')[0]} ${truck.dockName.split(' ')[1]} • 📦 ${truck.palletsLoaded}/${truck.maxPallets} Paletes
               </span>
             </div>
-            <img src="/images/truck-topdown.png" style="width:140px; height:70px; object-fit:contain; filter:drop-shadow(0 3px 6px rgba(5,30,75,0.25));" />
+            <img src="${assetUrl('images/truck-topdown.png')}" style="width:140px; height:70px; object-fit:contain; filter:drop-shadow(0 3px 6px rgba(5,30,75,0.25));" />
           </div>
         </div>
       `;
@@ -363,8 +364,8 @@ export default function PlantMapView({
         });
 
         marker.on('contextmenu', (e) => {
-          L.DomEvent.stopPropagation(e as any);
-          L.DomEvent.preventDefault(e as any);
+          L.DomEvent.stopPropagation(e);
+          L.DomEvent.preventDefault(e);
           onNodeRightClick(node.id);
         });
 
@@ -524,8 +525,8 @@ export default function PlantMapView({
     }
 
     const getPalletImage = (load: Forklift['load']) => {
-      if (load === 'pallet_plc') return '/images/pallet-plc-weg.png';
-      if (load === 'pallet_motors') return '/images/pallet-motors-weg.png';
+      if (load === 'pallet_plc') return assetUrl('images/pallet-plc-weg.png');
+      if (load === 'pallet_motors') return assetUrl('images/pallet-motors-weg.png');
       return null;
     };
 
@@ -541,7 +542,7 @@ export default function PlantMapView({
         <div id="vwrap-${v.id}" class="forklift-icon-container" style="width:48px; height:26px; position:relative;">
           <div id="vrot-${v.id}" style="width:48px; height:26px; position:relative; transform:rotate(${v.headingAngle + 180}deg); transition:transform 0.12s linear; transform-origin:center center;">
             ${palletSrc ? `<img id="vpal-${v.id}" src="${palletSrc}" style="position:absolute; left:-14px; top:3px; width:20px; height:20px; object-fit:contain; z-index:10; filter:drop-shadow(0 2px 3px rgba(0,0,0,0.3));" />` : `<img id="vpal-${v.id}" src="" style="display:none;" />`}
-            <img id="vimg-${v.id}" src="/images/forklift-topdown.png" 
+            <img id="vimg-${v.id}" src="${assetUrl('images/forklift-topdown.png')}"
                  style="width:48px; height:26px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(5,30,75,0.3));" 
                  alt="${v.name}" />
           </div>
@@ -749,7 +750,7 @@ export default function PlantMapView({
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#051E4B;min-width:220px;padding:2px;">
         <div style="display:flex;align-items:center;justify-content:between;gap:6px;margin-bottom:6px;border-bottom:1px solid #E2E8F0;padding-bottom:4px;">
           <div style="display:flex;align-items:center;gap:6px;">
-            <img src="/images/forklift-topdown.png" style="width:24px;height:24px;object-fit:contain;" />
+            <img src="${assetUrl('images/forklift-topdown.png')}" style="width:24px;height:24px;object-fit:contain;" />
             <div>
               <strong style="color:#051E4B;font-size:12px;display:block;">${vehicle.name}</strong>
               <span style="font-size:9px;color:#64748B;font-family:'JetBrains Mono',monospace;">CÓD: ${vehicle.code}</span>

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { PlantNode, NodeType } from '../types';
 import { Forklift, ForkliftLoad } from '../../fleet/types';
 import { EditorTool } from './PlantMapView';
+import { assetUrl } from '@/lib/assets';
 import { 
   Play, Square, Plus, Trash2, Download, Upload, Flame, MapPin, 
   RotateCcw, BatteryCharging, Package, Link2, Ban, ChevronRight, ChevronLeft,
@@ -25,7 +26,7 @@ interface PlantControlPanelProps {
   selectedNodes: string[];
   onAddVehicle: () => void;
   onRemoveVehicle: (id: string) => void;
-  onUpdateVehicle: (id: string, field: keyof Forklift, value: any) => void;
+  onUpdateVehicle: (id: string, field: keyof Forklift, value: Forklift[keyof Forklift]) => void;
   onDispatchVehicle: (vehicleId: string, destId?: string, load?: ForkliftLoad) => void;
   onStartSimulation: () => void;
   onStopSimulation: () => void;
@@ -296,7 +297,7 @@ export default function PlantControlPanel({
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
-                      <img src="/images/forklift-topdown.png" alt="Empilhadeira" className="w-4 h-4 object-contain" />
+                      <img src={assetUrl('images/forklift-topdown.png')} alt="Empilhadeira" className="w-4 h-4 object-contain" />
                       <span className="font-bold text-[#051E4B] text-[11px]">{v.name}</span>
                     </div>
 
@@ -341,8 +342,8 @@ export default function PlantControlPanel({
                   {/* Load Selection & Speed */}
                   <div className="flex items-center justify-between text-[10px] pt-1 border-t border-slate-200">
                     <div className="flex items-center gap-1 text-slate-700 font-medium">
-                      {v.load === 'pallet_plc' && <img src="/images/pallet-plc-weg.png" alt="PLC" className="w-3.5 h-3 object-contain" />}
-                      {v.load === 'pallet_motors' && <img src="/images/pallet-motors-weg.png" alt="Motores" className="w-3.5 h-3 object-contain" />}
+                      {v.load === 'pallet_plc' && <img src={assetUrl('images/pallet-plc-weg.png')} alt="PLC" className="w-3.5 h-3 object-contain" />}
+                      {v.load === 'pallet_motors' && <img src={assetUrl('images/pallet-motors-weg.png')} alt="Motores" className="w-3.5 h-3 object-contain" />}
                       {v.load === 'empty' && <Package className="w-3 h-3 text-slate-400" />}
                       <select
                         disabled={isMoving}
